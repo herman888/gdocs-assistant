@@ -1,4 +1,4 @@
-const COHERE_API_KEY = "Yesel17OGGxpbNi6nqmai8dUm8CDieEekzrn40uD"; // <-- Put your Cohere API key here
+const COHERE_API_KEY = "API KEY"; // <-- Put your Cohere API key here
 
 document.getElementById("ask").addEventListener("click", async () => {
   const input = document.getElementById("input").value.trim();
