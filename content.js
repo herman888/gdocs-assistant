@@ -1,0 +1,1 @@
+console.log("GDocs AI Assistant content script loaded.");

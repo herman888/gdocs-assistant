@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "GDocs AI Assistant",
+  "version": "1.0",
+  "description": "Ask ChatGPT and auto-type into Google Docs.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "sidebar.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "host_permissions": [
+    "https://docs.google.com/*"
+  ]
+}

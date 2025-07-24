@@ -1,0 +1,31 @@
+html, body {
+  height: 95vh; /* almost full height */
+  margin: 0;
+  padding: 10px;
+  font-family: sans-serif;
+  width: 300px; /* widen if you want */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+textarea#input, textarea#output {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea#input {
+  height: 120px;
+}
+
+textarea#output {
+  height: 150px;
+  margin-top: 10px;
+  resize: none;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}

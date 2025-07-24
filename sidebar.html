@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ask AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      margin-bottom: 10px;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    #output {
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Ask OpenAI</h2>
+  <textarea id="input" placeholder="Type your prompt here..."></textarea>
+  <button id="ask">Ask</button>
+  <textarea id="output" readonly placeholder="AI response..."></textarea>
+  <button id="typeIntoDoc">Type Into Google Doc</button>
+
+  <script src="sidebar.js"></script>
+</body>
+</html>
