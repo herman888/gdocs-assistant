@@ -2,39 +2,169 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Ask AI</title>
+  <title>AI Assistant</title>
   <style>
+    :root {
+      --primary: #4361ee;
+      --primary-hover: #3a56d4;
+      --secondary: #f8f9fa;
+      --text: #2b2d42;
+      --text-light: #6c757d;
+      --border: #e9ecef;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 10px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #ffffff;
+      color: var(--text);
+      padding: 16px;
+      width: 380px;
+      min-height: 500px;
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2::before {
+      content: "✨";
     }
 
     textarea {
       width: 100%;
-      height: 80px;
-      margin-bottom: 10px;
-      padding: 8px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       font-size: 14px;
+      resize: none;
+      transition: all 0.2s ease;
+      margin-bottom: 12px;
+      background-color: var(--secondary);
     }
 
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      font-size: 14px;
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+    }
+
+    #input {
+      height: 100px;
     }
 
     #output {
-      height: 150px;
+      height: 180px;
+      background-color: #fafafa;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #ask {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    #ask:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    #typeIntoDoc {
+      background-color: white;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    #typeIntoDoc:hover {
+      background-color: var(--secondary);
+    }
+
+    .status {
+      font-size: 13px;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 8px;
+      min-height: 20px;
+    }
+
+    /* Loading animation */
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    .loading {
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #5a7dff;
+        --secondary: #2d2d2d;
+        --text: #f8f9fa;
+        --text-light: #adb5bd;
+        --border: #495057;
+      }
+
+      body {
+        background-color: #1a1a1a;
+      }
+
+      #output {
+        background-color: #252525;
+      }
+
+      #typeIntoDoc {
+        background-color: #2d2d2d;
+      }
     }
   </style>
 </head>
 <body>
-  <h2>Ask OpenAI</h2>
-  <textarea id="input" placeholder="Type your prompt here..."></textarea>
-  <button id="ask">Ask</button>
-  <textarea id="output" readonly placeholder="AI response..."></textarea>
-  <button id="typeIntoDoc">Type Into Google Doc</button>
+  <h2>AI Assistant</h2>
+  
+  <textarea id="input" placeholder="Ask me anything..."></textarea>
+  
+  <div class="button-group">
+    <button id="ask">Generate</button>
+    <button id="typeIntoDoc">Insert to Doc</button>
+  </div>
+  
+  <textarea id="output" readonly placeholder="Your AI response will appear here..."></textarea>
+  
+  <div class="status" id="status"></div>
 
   <script src="sidebar.js"></script>
 </body>
